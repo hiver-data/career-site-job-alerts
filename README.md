@@ -10,7 +10,7 @@ Pay ranges are read from the posting text when the career site does not expose t
 
 ## Setup (3 steps)
 
-1. **Use this template**: fork or copy this repo into your own GitHub account.
+1. **Use this template**: fork or copy this repo into your own GitHub account, then copy `workflow-template/job-alerts.yml` to `.github/workflows/job-alerts.yml` (GitHub only runs workflows from that folder).
 2. **Add secrets** (Settings > Secrets and variables > Actions): `APIFY_TOKEN` (your own token from your Apify account). Optional: `SLACK_WEBHOOK_URL` and/or `DISCORD_WEBHOOK_URL`.
 3. **Edit `config.yaml`** (keywords, `postedWithinDays`, optional locations) and run the `job-alerts` workflow once from the Actions tab. After that it runs daily at 06:17 UTC and commits new rows to `jobs.csv`.
 
@@ -35,7 +35,7 @@ Actor page: https://apify.com/hiver/career-site-job-search?utm_source=github&utm
 
 - `job_alerts.py`: the script (Python 3.9+, PyYAML only)
 - `config.yaml`: your search
-- `.github/workflows/job-alerts.yml`: the daily schedule
+- `workflow-template/job-alerts.yml`: the daily schedule (copy to `.github/workflows/`)
 - `tests/`: mock Apify API, real sample rows, offline test
 
 MIT licensed.

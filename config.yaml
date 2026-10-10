@@ -1,0 +1,10 @@
+# Passed to hiver/career-site-job-search as its input. Edit and commit.
+keywords:
+  - data engineer
+  - machine learning engineer
+postedWithinDays: 7
+maxJobs: 20        # keeps each daily run tiny; raise it when you are happy
+# Optional filters (see the Actor's input page):
+# locations: ["Berlin", "United Kingdom"]
+# remoteOnly: true
+# excludeTerms: ["intern"]

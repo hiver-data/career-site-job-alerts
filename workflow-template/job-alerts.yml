@@ -1,0 +1,29 @@
+name: job-alerts
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily, 06:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Fetch jobs and find new ones
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python job_alerts.py
+      - name: Commit jobs.csv
+        run: |
+          git config user.name "job-alerts[bot]"
+          git config user.email "job-alerts@users.noreply.github.com"
+          git add jobs.csv NEW_JOBS.md
+          git diff --cached --quiet || git commit -m "New jobs $(date -u +%F)"
+          git push
