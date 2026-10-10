@@ -8,3 +8,6 @@ maxJobs: 20        # keeps each daily run tiny; raise it when you are happy
 # locations: ["Berlin", "United Kingdom"]
 # remoteOnly: true
 # excludeTerms: ["intern"]
+# minSalary: 150000          # only jobs whose posted pay range reaches this per year
+# salaryCurrency: "USD"      # currency of minSalary (no exchange rates)
+# includeJobsWithoutSalary: false  # true keeps jobs that state no pay

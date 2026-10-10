@@ -6,7 +6,7 @@ A daily job alert you own. A scheduled GitHub Actions workflow searches company 
 - writes `NEW_JOBS.md` with just today's new jobs,
 - optionally posts them to Slack or Discord.
 
-Pay ranges are read from the posting text when the career site does not expose them, so `jobs.csv` has a `salary` column where a posting states one.
+Pay ranges are read from the posting text when the career site does not expose them, so `jobs.csv` has a `salary` column where a posting states one. To alert only on well-paid roles, uncomment `minSalary` in `config.yaml`: the Actor then keeps jobs whose posted pay range reaches that annual amount, and jobs it leaves out are not charged.
 
 ## Setup (3 steps)
 
