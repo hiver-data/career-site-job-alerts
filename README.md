@@ -8,6 +8,10 @@ A daily job alert you own. A scheduled GitHub Actions workflow searches company 
 
 Pay ranges are read from the posting text when the career site does not expose them, so `jobs.csv` has a `salary` column where a posting states one. To alert only on well-paid roles, uncomment `minSalary` in `config.yaml`: the Actor then keeps jobs whose posted pay range reaches that annual amount, and jobs it leaves out are not charged.
 
+![One keyword search over company career sites: real output rows from a board test run on 2026-10-12](media/career-site-jobs/readme.gif)
+
+[Watch the 1-minute walkthrough (MP4)](media/career-site-jobs/walkthrough.mp4)
+
 ## Setup (3 steps)
 
 1. **Use this template**: fork or copy this repo into your own GitHub account, then copy `workflow-template/job-alerts.yml` to `.github/workflows/job-alerts.yml` (GitHub only runs workflows from that folder).
